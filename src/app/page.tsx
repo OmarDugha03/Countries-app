@@ -1,9 +1,9 @@
-import Card from "../../components/Card";
+import FetchedData from "@components/Fetch";
 
 export default function Home() {
   return (
     <>
-      <Card></Card>
+      <FetchedData />
     </>
-  )
+  );
 }
