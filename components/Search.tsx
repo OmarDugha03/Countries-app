@@ -9,7 +9,7 @@ import DropDown from "./DropDown";
 const Search = ({}) => {
   const { resolvedTheme } = useTheme();
   return (
-    <div className="flex flex-col items-center justify-between lg:flex-row">
+    <div className="flex flex-col items-center justify-between mb-5 lg:flex-row">
       <div className="mx-auto w-[90%] lg:w-[30%] lg:mx-20 lg:py-10  justify-between flex items-center relative py-8 ">
         <Input
           placeholder="Search for a country ..."

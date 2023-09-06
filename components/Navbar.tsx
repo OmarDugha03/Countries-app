@@ -4,6 +4,7 @@ import Image from "next/image";
 import moon from "../public/moon.svg";
 import sun from "../public/sunW.svg";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 interface NavbarProps {
   children: ReactNode;
 }
@@ -22,12 +23,12 @@ const Navbar: FC<NavbarProps> = ({ children }) => {
     }
   }, []);
   return (
-    <div className="flex ">
-      <nav className="fixed w-full">
+    <>
+      <nav className="sticky top-0 z-10 w-full backdrop-filter backdrop-blur-lg">
         <div className=" p-5 mx-auto backdrop-filter backdrop-blur-lg shadow-lg md:p-10 md:justify-around border-b-[0.3px] border-slate-400 dark:bg-opacity-50 bg-opacity-30 bg-slate-200 dark:bg-slate-950">
           <div className="flex items-center justify-between">
             <h1 className="text-lg font-black tracking-wider lg:text-4xl md:text-2xl">
-              Where In the World ?{" "}
+              <Link href="/">Where In the World ?</Link>
             </h1>
             {resolvedTheme === "light" ? (
               <Image
@@ -51,8 +52,8 @@ const Navbar: FC<NavbarProps> = ({ children }) => {
           </div>
         </div>
       </nav>
-      <main className="w-full mt-32 lg:mt-44">{children}</main>
-    </div>
+      <main className="w-full mt-2 lg:mt-4">{children}</main>
+    </>
   );
 };
 

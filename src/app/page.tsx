@@ -4,8 +4,10 @@ import Search from "@components/Search";
 export default function Home() {
   return (
     <>
-      <Search />
-      <FetchedData />
+      <div className="z-[-100000]">
+        <Search />
+        <FetchedData />
+      </div>
     </>
   );
 }

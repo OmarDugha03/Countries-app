@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={classnames(
-          "transition-colors bg-white selection:text-rose-600 selection:bg-black dark:bg-slate-900 text-slate-900 dark:text-slate-50",
+          "transition-colors bg-white selection:bg-cyan-700  dark:bg-slate-900 text-slate-900 dark:text-slate-50",
           montserrat
         )}>
         <Providers>
