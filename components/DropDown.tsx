@@ -24,7 +24,7 @@ export default function Example() {
                     height: 0,
                     transition: { duration: 0.5 },
                   }}
-                  className="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  className="absolute right-0 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg dark:bg-slate-100 ring-1 ring-black ring-opacity-5 focus:outline-none">
                   {reg.map((item) => (
                     <Menu.Item key={item}>
                       {({ active }) => (

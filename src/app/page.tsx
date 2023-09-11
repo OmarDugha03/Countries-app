@@ -6,6 +6,7 @@ export default function Home() {
     <>
       <div className="z-[-100000]">
         <Search />
+        {/* @ts-ignore */}
         <FetchedData />
       </div>
     </>
