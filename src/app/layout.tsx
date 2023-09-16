@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import Providers from "@components/Providers";
 import dynamic from "next/dynamic";
 import classnames from "classnames";
+import Search from "@components/Search";
 const montserrat = Montserrat({ subsets: ["latin"] });
 const NavBar = dynamic(() => import("../../components/Navbar"), { ssr: false });
 export default function RootLayout({
@@ -18,7 +19,9 @@ export default function RootLayout({
           montserrat
         )}>
         <Providers>
-          <NavBar>{children}</NavBar>
+          <NavBar>
+            <Search>{children}</Search>
+          </NavBar>
         </Providers>
       </body>
     </html>

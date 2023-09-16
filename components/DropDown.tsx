@@ -1,28 +1,46 @@
+"use client";
 import { Listbox } from "@headlessui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+type RegionName = {
+  name: string;
+};
+interface Props {
+  regionName: string;
+}
 
-export default function Example() {
+export default function DropDown({ regionName }: Props) {
   const reg = [
     { id: 1, name: "All", unavailable: false },
     { id: 2, name: "Africa", unavailable: false },
     { id: 3, name: "Asia", unavailable: false },
     { id: 4, name: "America", unavailable: false },
     { id: 5, name: "Europe", unavailable: false },
-    { id: 5, name: "Oceanian", unavailable: false },
+    { id: 6, name: "Oceanian", unavailable: false },
   ];
-  const [selectedReg, setSelectedReg] = useState(reg[0]);
+  const route = useRouter();
+
+  const [selectedReg, setSelectedReg] = useState<RegionName>({ name: "All" });
+  const handleSelectedRegion = (region: RegionName) => {
+    setSelectedReg(region);
+    if (region.name === "All") {
+      route.push(`/`);
+    } else {
+      route.push(`/region/${region.name}`);
+    }
+  };
   return (
     <div className=" flex items-center justify-between px-4 mx-auto text-right  lg:mr-[60px]">
       <Listbox
         value={selectedReg}
-        onChange={setSelectedReg}
+        onChange={handleSelectedRegion}
         as="div"
-        className="relative w-full list-none mr-[-40px] ">
+        className="relative  w-full list-none mr-[-40px] ">
         {({ open }) => (
           <>
-            <Listbox.Button className="flex items-center justify-between px-8 py-3 text-lg font-bold rounded-md dark:text-slate-50 text-slate-900 bg-slate-300 bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-              {selectedReg.name}
+            <Listbox.Button className="flex items-center justify-between py-3 text-lg font-bold rounded-md w-36 dark:text-slate-50 text-slate-900 bg-slate-300 bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+              <span className="px-10 text-center">{selectedReg.name}</span>
             </Listbox.Button>
             <AnimatePresence>
               {open && (

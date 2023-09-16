@@ -1,11 +1,9 @@
-import FetchedData from "@components/Fetch";
-import Search from "@components/Search";
+import FetchedData from "@components/AllCountries";
 
 export default function Home() {
   return (
     <>
       <div className="z-[-100000]">
-        <Search />
         {/* @ts-ignore */}
         <FetchedData />
       </div>

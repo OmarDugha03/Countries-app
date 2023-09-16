@@ -2,7 +2,7 @@ import Image from "next/image";
 import BackButton from "@components/BackButton";
 async function getCountryByName(name: string) {
   const response = await fetch(
-    `${process.env.API_KEY}/name/${name}?fullText=true`
+    `https://restcountries.com/v3.1/name/${name}?fullText=true`
   );
   const country = await response.json();
 
@@ -37,12 +37,12 @@ async function CountryDetail({
         <p className="py-4 text-2xl font-bold tracking-wider ">
           {country.name.common}
         </p>
-        <p>{country.languages}</p>
-        {/*     <p>{country.capital}</p> */}
-        <div>{country.population}</div>
       </div>
     </>
   );
 }
 
 export default CountryDetail;
+/*         <p>{country.languages}</p>
+        {/*     <p>{country.capital}</p> 
+        <div>{country.population}</div> */

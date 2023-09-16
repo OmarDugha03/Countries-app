@@ -1,20 +1,20 @@
+import Link from "next/link";
+import { fetchCountryByRegion } from "../../../../lib/fetchCountryByRegion";
 import Image from "next/image";
 import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
-import Link from "next/link";
+export default async function CountryDetail({
+  params: { regId },
+}: {
+  params: { regId: string };
+}) {
+  const country = await fetchCountryByRegion(regId);
 
-async function getAll() {
-  const data = await fetch(`${process.env.API_KEY}/all`);
-  return data.json();
-}
-
-export default async function FetchedData() {
-  const countries = await getAll();
   return (
     <div className="flex flex-col items-center justify-center w-[95%] mx-auto  rounded-md md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8  ">
-      {countries.map((i: any) => (
+      {country.map((i: any) => (
         <Link href={`/countries/${i.name.common}`} key={i.name.common}>
-          <div className="flex flex-col max-w-md hover:shadow-[0px_0px_27px_4px_#a0aec0] transition-all duration-300 items-center my-2 text-left border rounded-lg shadow-xl cursor-pointer dark:border-slate-500 bg-slate-100 dark:bg-slate-800 ">
+          <div className="flex flex-col max-w-md hover:shadow-[0px_0px_27px_4px_#a0aec0] transition-all duration-300 items-center my-2 text-left border rounded-lg shadow-xl cursor-pointer rid md:grid-cols-2 md:px-8 lg:px-0 xl:grid-cols-3 2xl:grid-cols-4 gap-14 dark:border-slate-500 bg-slate-100 dark:bg-slate-800 ">
             <Suspense
               fallback={
                 <Loader2 className="w-10 h-10 animate-spin dark:text-slate-200" />
