@@ -39,7 +39,7 @@ export default function DropDown({ regionName }: Props) {
         value={selectedReg}
         onChange={handleSelectedRegion}
         as="div"
-        className="relative  w-full list-none mr-[-40px] ">
+        className="relative  w-full list-none md:mr-[80px] mr-[-40px] ">
         {({ open }) => (
           <>
             <Listbox.Button className="flex items-center justify-between py-3 text-lg font-bold rounded-md w-36 dark:text-slate-50 text-slate-900 bg-slate-300 bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
@@ -57,7 +57,7 @@ export default function DropDown({ regionName }: Props) {
                     height: 0,
                     transition: { duration: 0.5 },
                   }}
-                  className="absolute right-0 mr-[-40px]  w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg dark:bg-slate-100 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  className="absolute right-0 mr-[-40px] md:mr-[80px] w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg dark:bg-slate-100 ring-1 ring-black ring-opacity-5 focus:outline-none">
                   {reg.map((selectedReg) => (
                     <Listbox.Option
                       key={selectedReg.id}

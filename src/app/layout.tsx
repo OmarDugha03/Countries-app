@@ -1,9 +1,9 @@
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import Providers from "@components/Providers";
+import { Providers, Search } from "@components/index";
 import dynamic from "next/dynamic";
 import classnames from "classnames";
-import Search from "@components/Search";
+
 const montserrat = Montserrat({ subsets: ["latin"] });
 const NavBar = dynamic(() => import("../../components/Navbar"), { ssr: false });
 export default function RootLayout({

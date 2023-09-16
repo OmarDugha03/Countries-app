@@ -1,82 +1,109 @@
-interface NativeName {
-  official: string;
-  common: string;
+type Country = 
+{
+"name": {
+"common": string,
+"official": string,
+"nativeName": {
+"deu": {
+"official": strin,
+"common": string
 }
-
-interface Currency {
-  name: string;
-  symbol: string;
 }
-
-interface Language {
-  eng: string;
-  smo: string;
+},
+"tld": [
+".de"
+],
+"cca2":string,
+"ccn3": string,
+"cca3":string,
+"cioc":string,
+"independent": boolean,
+"status": string,
+"unMember": boolean,
+"currencies": {
+"EUR": {
+"name": string,
+"symbol": string
 }
-
-interface Translations {
-  [key: string]: CommonName;
+},
+"idd": {
+"root": string,
+"suffixes": string[]
+},
+"capital": string[],
+"altSpellings": string[],
+"region": string,
+"subregion": string,
+"languages": {
+"deu": string
+},
+"latlng": [
+51,
+9
+],
+"landlocked": false,
+"borders": [
+"AUT",
+"BEL",
+"CZE",
+"DNK",
+"FRA",
+"LUX",
+"NLD",
+"POL",
+"CHE"
+],
+"area": 357114,
+"demonyms": {
+"eng": {
+"f": "German",
+"m": "German"
+},
+"fra": {
+"f": "Allemande",
+"m": "Allemand"
 }
-
-interface Demonyms {
-  eng: Demonym;
-  fra: Demonym;
+},
+"flag": "🇩🇪",
+"maps": {
+"googleMaps": "https://goo.gl/maps/mD9FBMq1nvXUBrkv6",
+"openStreetMaps": "https://www.openstreetmap.org/relation/51477"
+},
+"population": 83240525,
+"gini": {
+"2016": 31.9
+},
+"fifa": "GER",
+"car": {
+"signs": [
+"DY"
+],
+"side": "right"
+},
+"timezones": [
+"UTC+01:00"
+],
+"continents": [
+"Europe"
+],
+"flags": {
+"png": "https://flagcdn.com/w320/de.png",
+"svg": "https://flagcdn.com/de.svg",
+"alt": "The flag of Germany is composed of three equal horizontal bands of black, red and gold."
+},
+"coatOfArms": {
+"png": "https://mainfacts.com/media/images/coats_of_arms/de.png",
+"svg": "https://mainfacts.com/media/images/coats_of_arms/de.svg"
+},
+"startOfWeek": "monday",
+"capitalInfo": {
+"latlng": [
+52.52,
+13.4
+]
+},
+"postalCode": {
+"format": "#####",
+"regex": "^(\\d{5})$"
 }
-
-interface Demonym {
-  f: string;
-  m: string;
-}
-
-interface Maps {
-  googleMaps: string;
-  openStreetMaps: string;
-}
-
-interface Flags {
-  png: string;
-  svg: string;
-  alt?: string;
-}
-
-interface CapitalInfo {
-  latlng: number[];
-}
-
-interface Country {
-  find(arg0: (country: any) => any): any;
-  filter(arg0: (country: any) => any): unknown;
-  name: CommonName;
-  nativeName: { [key: string]: NativeName };
-  tld: string[];
-  cca2: string;
-  ccn3: string;
-  cca3: string;
-  cioc: string;
-  independent: boolean;
-  status: string;
-  unMember: boolean;
-  currencies: { [key: string]: Currency };
-  idd: { root: string; suffixes: string[] };
-  capital: string[];
-  altSpellings: string[];
-  region: string;
-  subregion: string;
-  languages: string;
-  translations: Translations;
-  latlng: number[];
-  landlocked: boolean;
-  area: number;
-  demonyms: Demonyms;
-  flag: string;
-  maps: Maps;
-  borders?: string[];
-  population: number;
-  fifa: string;
-  car: { signs: string[]; side: string };
-  timezones: string[];
-  continents: string[];
-  flags: Flags;
-  coatOfArms: object;
-  startOfWeek: string;
-  capitalInfo: CapitalInfo;
 }

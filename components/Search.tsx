@@ -1,11 +1,10 @@
 "use client";
 import { useTheme } from "next-themes";
-import { Input } from "./Input";
-import { ReactNode, useEffect } from "react";
+import { Input, DropDown } from "./index";
+import { ReactNode } from "react";
 import searchB from "../public/search.svg";
 import searchW from "../public/searchW.svg";
 import Image from "next/image";
-import DropDown from "./DropDown";
 
 interface Props {
   search: (search: string) => Promise<string[]>;
@@ -16,7 +15,7 @@ const Search = ({ children }: { children: ReactNode }) => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-between mb-5 lg:flex-row">
+      <div className="flex flex-col items-center justify-between mb-5 md:flex-row">
         <div className="mx-auto w-[90%] lg:w-[30%] lg:mx-20 lg:py-10  justify-between flex items-center relative py-8 ">
           <form action="">
             <Input
