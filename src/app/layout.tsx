@@ -19,9 +19,11 @@ export default function RootLayout({
           montserrat
         )}>
         <Providers>
-          <NavBar>
-            <Search>{children}</Search>
-          </NavBar>
+          <div className="z-[1000]">
+            <NavBar>
+              <Search>{children}</Search>
+            </NavBar>
+          </div>
         </Providers>
       </body>
     </html>

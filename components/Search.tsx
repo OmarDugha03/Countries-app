@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
 import { Input } from "./Input";
-import { useState, useEffect, ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import searchB from "../public/search.svg";
 import searchW from "../public/searchW.svg";
 import Image from "next/image";
@@ -13,6 +13,7 @@ interface Props {
 
 const Search = ({ children }: { children: ReactNode }) => {
   const { resolvedTheme } = useTheme();
+
   return (
     <>
       <div className="flex flex-col items-center justify-between mb-5 lg:flex-row">

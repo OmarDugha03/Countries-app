@@ -1,7 +1,7 @@
 "use client";
 import { Listbox } from "@headlessui/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 type RegionName = {
   name: string;
@@ -30,6 +30,9 @@ export default function DropDown({ regionName }: Props) {
       route.push(`/region/${region.name}`);
     }
   };
+  useEffect(() => {
+    route.push(`/`);
+  }, []);
   return (
     <div className=" flex items-center justify-between px-4 mx-auto text-right  lg:mr-[60px]">
       <Listbox
