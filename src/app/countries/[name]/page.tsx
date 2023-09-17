@@ -9,7 +9,11 @@ export async function generateMetadata({
 }) {
   const country = await fetchCountryByName(name);
   return {
-    title: `${country.map((i: any) => i.regId.name)}`,
+    title: `${country.map((i: any) => i.name.common)}`,
+    description: `This ${country.map((i: any) => i.name.common)} Page`,
+    icons: {
+      icon: `${country.map((i: any) => i.flags.svg)}`,
+    },
   };
 }
 async function CountryDetail({
@@ -22,30 +26,31 @@ async function CountryDetail({
   return (
     <>
       <BackButton />
-      <div className="flex flex-col items-center py-4">
-        <Image
-          src={country.flags.svg}
-          alt={country.flags.alt}
-          sizes="100vw"
-          className="rounded"
-          style={{
-            width: "90%",
-            height: "auto",
-          }}
-          width={150}
-          height={150}
-        />
-      </div>
-      <div className="flex flex-col items-start justify-center px-6 py-4">
-        <p className="py-4 text-2xl font-bold tracking-wider ">
-          {country.name.common}
-        </p>
-      </div>
+      {country.map((i: any) => (
+        <>
+          <div className="flex flex-col items-center py-4">
+            <Image
+              src={i.flags.svg}
+              alt={i.flags.alt}
+              sizes="100vw"
+              className="rounded"
+              style={{
+                width: "90%",
+                height: "auto",
+              }}
+              width={150}
+              height={150}
+            />
+          </div>
+          <div className="flex flex-col items-start justify-center px-6 py-4">
+            <p className="py-4 text-2xl font-bold tracking-wider ">
+              {i.name.common}
+            </p>
+          </div>
+        </>
+      ))}
     </>
   );
 }
 
 export default CountryDetail;
-/*         <p>{country.languages}</p>
-        {/*     <p>{country.capital}</p> 
-        <div>{country.population}</div> */

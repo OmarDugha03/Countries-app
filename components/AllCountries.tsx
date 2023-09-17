@@ -3,8 +3,6 @@ import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import getAll from "@lib/getAllData";
-import Search from "./Search";
-import fetchCountryByName from "@lib/searchByName";
 export default async function FetchedData({}): Promise<JSX.Element> {
   const countries = await getAll();
   return (
