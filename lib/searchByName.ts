@@ -1,6 +1,6 @@
-export async function fetchCountryByRegion(name: string) {
+export default async function fetchCountryByName(name: string) {
   const res = await fetch(
-    `https://restcountries.com/v3.1/name/${name}`
+    `${process.env.API_KEY}/name/${name}`
   );
 
   if (!res.ok) {

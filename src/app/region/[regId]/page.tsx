@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
 import { motion as m, AnimatePresence } from "framer-motion";
+import { AllCountries } from "@components/index";
 export default async function CountryDetail({
   params: { regId },
 }: {
@@ -17,7 +18,7 @@ export default async function CountryDetail({
     <m.div
       initial={{ opacity: 0, translateY: -20 }}
       animate={{ opacity: 1, translateY: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.15 }}
       exit={{ opacity: 0 }}>
       <AnimatePresence>
         <div className="flex flex-col items-center justify-center w-[95%] mx-auto  rounded-md md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8  ">

@@ -1,17 +1,14 @@
 "use client";
 import { useTheme } from "next-themes";
 import { Input, DropDown } from "./index";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import searchB from "../public/search.svg";
 import searchW from "../public/searchW.svg";
 import Image from "next/image";
-
-interface Props {
-  search: (search: string) => Promise<string[]>;
-}
-
-const Search = ({ children }: { children: ReactNode }) => {
+import fetchCountryByName from "@lib/searchByName";
+const Search = () => {
   const { resolvedTheme } = useTheme();
+  const [search, setSearch] = useState("");
 
   return (
     <>
@@ -21,6 +18,8 @@ const Search = ({ children }: { children: ReactNode }) => {
             <Input
               placeholder="Search for a country ..."
               className="pl-12 lg:pl-20"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
             <button
               type="submit"
@@ -43,7 +42,6 @@ const Search = ({ children }: { children: ReactNode }) => {
         </div>
         <DropDown regionName={""} />
       </div>
-      <main>{children}</main>
     </>
   );
 };

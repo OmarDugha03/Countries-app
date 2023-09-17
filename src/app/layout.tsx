@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import { Providers, Search } from "@components/index";
+import { Providers } from "@components/index";
 import dynamic from "next/dynamic";
 import classnames from "classnames";
 
@@ -20,9 +20,7 @@ export default function RootLayout({
         )}>
         <Providers>
           <div className="z-[1000]">
-            <NavBar>
-              <Search>{children}</Search>
-            </NavBar>
+            <NavBar>{children}</NavBar>
           </div>
         </Providers>
       </body>
