@@ -4,12 +4,11 @@ import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import getAll from "@lib/getAllData";
 import Search from "./Search";
-
-export default async function FetchedData(): Promise<JSX.Element> {
+import fetchCountryByName from "@lib/searchByName";
+export default async function FetchedData({}): Promise<JSX.Element> {
   const countries = await getAll();
   return (
     <>
-      <Search />
       <div className="flex flex-col items-center justify-center w-[95%] mx-auto  rounded-md md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8  ">
         {countries.map((i: any) => (
           <Link href={`/countries/${i.name.common}`} key={i.name.common}>

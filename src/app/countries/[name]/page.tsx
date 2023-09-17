@@ -1,20 +1,23 @@
 import Image from "next/image";
 import BackButton from "@components/BackButton";
-async function getCountryByName(name: string) {
-  const response = await fetch(
-    `https://restcountries.com/v3.1/name/${name}?fullText=true`
-  );
-  const country = await response.json();
+import fetchCountryByName from "@lib/searchByName";
 
-  return country[0];
+export async function generateMetadata({
+  params: { name },
+}: {
+  params: { name: string };
+}) {
+  const country = await fetchCountryByName(name);
+  return {
+    title: `${country.map((i: any) => i.regId.name)}`,
+  };
 }
-
 async function CountryDetail({
   params: { name },
 }: {
   params: { name: string };
 }) {
-  const country = await getCountryByName(name);
+  const country = await fetchCountryByName(name);
 
   return (
     <>
