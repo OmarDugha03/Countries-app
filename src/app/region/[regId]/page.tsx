@@ -9,7 +9,7 @@ export async function generateMetadata({
 }: {
   params: { regId: string };
 }) {
-  const country = await fetchCountryByRegion(regId);
+  /*   const country = await fetchCountryByRegion(regId); */
   return {
     title: `${regId}`,
   };
@@ -32,7 +32,7 @@ export default async function CountryDetail({
                   <Loader2 className="w-10 h-10 animate-spin dark:text-slate-200" />
                 }>
                 <Image
-                  className="rounded-md rounded-b-none lg:hidden"
+                  className="rounded-md rounded-b-none lg:hidden w-full md:w-1/2 aspect-[5/3] object-cover  border dark:border-none"
                   src={i.flags.svg}
                   width={1}
                   height={1}
@@ -46,7 +46,7 @@ export default async function CountryDetail({
                   priority
                 />
                 <Image
-                  className="hidden rounded-md rounded-b-none lg:block"
+                  className="hidden rounded-md rounded-b-none lg:block "
                   src={i.flags.svg}
                   width={1}
                   height={1}

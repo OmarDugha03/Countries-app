@@ -3,8 +3,18 @@ import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import getAll from "@lib/getAllData";
-export default async function FetchedData({}): Promise<JSX.Element> {
+import Pagination from "./Pagination";
+export default async function FetchedData({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   const countries = await getAll();
+  /*   const page = searchParams["page"] ?? 1;
+  const per_page = searchParams["per_page"] ?? 5;
+  const start = (Number(page) - 1) * Number(per_page);
+  const end = start + Number(per_page);
+  const ent = countries.slice(start, end); */
   return (
     <>
       <div className="flex flex-col items-center justify-center w-[95%] mx-auto  rounded-md md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8  ">
@@ -63,6 +73,10 @@ export default async function FetchedData({}): Promise<JSX.Element> {
             </div>
           </Link>
         ))}
+        {/*         <Pagination
+          hasNextPage={end < countries.length}
+          hasPrevPage={start > 0}
+        /> */}
       </div>
     </>
   );

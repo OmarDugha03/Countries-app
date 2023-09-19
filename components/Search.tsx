@@ -14,6 +14,7 @@ const Search = () => {
     setSearch(e.target.value);
     setSearch(" ");
   }
+  console.log(search);
   return (
     <>
       <div className="flex flex-col items-center justify-between mb-5 md:flex-row">
