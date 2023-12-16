@@ -29,7 +29,6 @@ export default function RootLayout({
             <Providers>
               <div className="z-[1000]">
                 <NavBar>
-                  {" "}
                   <Search />
                   {children}
                 </NavBar>

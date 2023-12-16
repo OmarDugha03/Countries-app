@@ -6,11 +6,8 @@ import { useRouter } from "next/navigation";
 type RegionName = {
   name: string;
 };
-interface Props {
-  regionName: string;
-}
 
-export default function DropDown({ regionName }: Props) {
+export default function DropDown({}) {
   const reg = [
     { id: 1, name: "All", unavailable: false },
     { id: 2, name: "Africa", unavailable: false },
@@ -19,6 +16,7 @@ export default function DropDown({ regionName }: Props) {
     { id: 5, name: "Europe", unavailable: false },
     { id: 6, name: "Oceanian", unavailable: false },
   ];
+
   const route = useRouter();
 
   const [selectedReg, setSelectedReg] = useState<RegionName>({ name: "All" });
@@ -30,6 +28,7 @@ export default function DropDown({ regionName }: Props) {
       route.push(`/region/${region.name}`);
     }
   };
+
   useEffect(() => {
     route.push(`/`);
   }, []);

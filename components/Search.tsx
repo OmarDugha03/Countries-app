@@ -45,7 +45,7 @@ const Search = () => {
             />
           )}
         </div>
-        <DropDown regionName={""} />
+        <DropDown />
       </div>
     </>
   );
